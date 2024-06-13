@@ -1,5 +1,7 @@
 # Adversarial Neural Cryptography
 
+Exploring the capability of neural networks to learn symmetric and asymmetric encryption schemes. Train and experiment with the symmetric model [here](https://colab.research.google.com/github/mwpryer/nn-cryptography/blob/main/symmetric.ipynb), or the asymmetric model [here](https://colab.research.google.com/github/mwpryer/nn-cryptography/blob/main/asymmetric.ipynb).
+
 ## Overview
 
 In 2016, Abadi and Anderson introduced a novel approach for learning encryption schemes using neural networks, termed Adversarial Neural Cryptography [[1]](https://arxiv.org/pdf/1610.06918.pdf).
@@ -7,6 +9,28 @@ In 2016, Abadi and Anderson introduced a novel approach for learning encryption 
 It was shown that neural networks can learn to protect their communication from an adversary by means of self-discovered encryption mechanisms. By training adversarially, two neural networks aiming to communicate privately learn to perform encryption and decryption, ensuring confidentiality in the presence of eavesdroppers. This was achieved without prescribing initial cryptographic algorithms.
 
 The code in this repository aims to implement a simplified version of this system, and demonstrate the ability for neural networks to learn encryption and decryption algorithms, albeit impractical ones.
+
+## Demonstration
+
+A simple demonstration of encryption and decryption using the symmetric model is provided below:
+
+```
+# Symmetric model
+Plaintext: Hello, World!
+Ciphertext: ?÷Qgsã?ÿì»`:
+Plaintext (Bob): Hello, World!
+Plaintext (Eve): !á8)ªhØCuî¸Q
+```
+
+And for the asymmetric model:
+
+```
+# Asymmetric model
+Plaintext: Hello, World!
+Ciphertext: 6G6 _N&
+Plaintext (Bob): Hello, World!
+Plaintext (Eve): Xe|l, Wv|d!
+```
 
 ## Introduction
 
@@ -92,28 +116,6 @@ And as before, we evaluate the system with a new dataset to determine the final 
 </div>
 
 The performance of the asymmetric model is notably worse than that of the symmetric model, with Eve recovering a majority of the plaintext message. This is likely due to the increased complexity of the asymmetric model, where the key generator neural network introduces additional noise into the system. Despite this, it still demonstrates the capability of neural networks to learn some form of weak security over communication channels.
-
-## Demonstration
-
-A simple demonstration of encryption and decryption using the symmetric model is provided below:
-
-```
-# Symmetric model
-Plaintext: Hello, World!
-Ciphertext: ?÷Qgsã?ÿì»`:
-Plaintext (Bob): Hello, World!
-Plaintext (Eve): !á8)ªhØCuî¸Q
-```
-
-And the asymmetric model:
-
-```
-# Asymmetric model
-Plaintext: Hello, World!
-Ciphertext: 6G6 _N&
-Plaintext (Bob): Hello, World!
-Plaintext (Eve): Xe|l, Wv|d!
-```
 
 ## References
 
